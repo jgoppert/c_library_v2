@@ -1,7 +1,7 @@
 #pragma once
 // MESSAGE ESTIMATOR_INNOV PACKING
 
-#define MAVLINK_MSG_ID_ESTIMATOR_INNOV 272
+#define MAVLINK_MSG_ID_ESTIMATOR_INNOV 271
 
 MAVPACKED(
 typedef struct __mavlink_estimator_innov_t {
@@ -14,11 +14,11 @@ typedef struct __mavlink_estimator_innov_t {
 
 #define MAVLINK_MSG_ID_ESTIMATOR_INNOV_LEN 135
 #define MAVLINK_MSG_ID_ESTIMATOR_INNOV_MIN_LEN 135
-#define MAVLINK_MSG_ID_272_LEN 135
-#define MAVLINK_MSG_ID_272_MIN_LEN 135
+#define MAVLINK_MSG_ID_271_LEN 135
+#define MAVLINK_MSG_ID_271_MIN_LEN 135
 
 #define MAVLINK_MSG_ID_ESTIMATOR_INNOV_CRC 141
-#define MAVLINK_MSG_ID_272_CRC 141
+#define MAVLINK_MSG_ID_271_CRC 141
 
 #define MAVLINK_MSG_ESTIMATOR_INNOV_FIELD_INNOV_LEN 21
 #define MAVLINK_MSG_ESTIMATOR_INNOV_FIELD_ID_LEN 21
@@ -26,7 +26,7 @@ typedef struct __mavlink_estimator_innov_t {
 
 #if MAVLINK_COMMAND_24BIT
 #define MAVLINK_MESSAGE_INFO_ESTIMATOR_INNOV { \
-    272, \
+    271, \
     "ESTIMATOR_INNOV", \
     5, \
     {  { "time_usec", NULL, MAVLINK_TYPE_UINT64_T, 0, 0, offsetof(mavlink_estimator_innov_t, time_usec) }, \
