@@ -6,23 +6,23 @@
 MAVPACKED(
 typedef struct __mavlink_estimator_innov_std_t {
  uint64_t time_usec; /*< Timestamp (microseconds since system boot or since UNIX epoch)*/
- float std[21]; /*< The estimator innovation standard deviation sqrt(diag(S))*/
+ float std[40]; /*< The estimator innovation standard deviation sqrt(diag(S))*/
  uint8_t n; /*< Number of innovations, max 21*/
- uint8_t id[21]; /*< An array describing field type (see MAV_FIELD)*/
- uint8_t sensor[21]; /*< An array describing the sensor associated with the field (see MAV_SENSOR_TYPE)*/
+ uint8_t id[40]; /*< An array describing field type (see MAV_FIELD)*/
+ uint8_t sensor[40]; /*< An array describing the sensor associated with the field (see MAV_SENSOR_TYPE)*/
 }) mavlink_estimator_innov_std_t;
 
-#define MAVLINK_MSG_ID_ESTIMATOR_INNOV_STD_LEN 135
-#define MAVLINK_MSG_ID_ESTIMATOR_INNOV_STD_MIN_LEN 135
-#define MAVLINK_MSG_ID_272_LEN 135
-#define MAVLINK_MSG_ID_272_MIN_LEN 135
+#define MAVLINK_MSG_ID_ESTIMATOR_INNOV_STD_LEN 249
+#define MAVLINK_MSG_ID_ESTIMATOR_INNOV_STD_MIN_LEN 249
+#define MAVLINK_MSG_ID_272_LEN 249
+#define MAVLINK_MSG_ID_272_MIN_LEN 249
 
-#define MAVLINK_MSG_ID_ESTIMATOR_INNOV_STD_CRC 177
-#define MAVLINK_MSG_ID_272_CRC 177
+#define MAVLINK_MSG_ID_ESTIMATOR_INNOV_STD_CRC 193
+#define MAVLINK_MSG_ID_272_CRC 193
 
-#define MAVLINK_MSG_ESTIMATOR_INNOV_STD_FIELD_STD_LEN 21
-#define MAVLINK_MSG_ESTIMATOR_INNOV_STD_FIELD_ID_LEN 21
-#define MAVLINK_MSG_ESTIMATOR_INNOV_STD_FIELD_SENSOR_LEN 21
+#define MAVLINK_MSG_ESTIMATOR_INNOV_STD_FIELD_STD_LEN 40
+#define MAVLINK_MSG_ESTIMATOR_INNOV_STD_FIELD_ID_LEN 40
+#define MAVLINK_MSG_ESTIMATOR_INNOV_STD_FIELD_SENSOR_LEN 40
 
 #if MAVLINK_COMMAND_24BIT
 #define MAVLINK_MESSAGE_INFO_ESTIMATOR_INNOV_STD { \
@@ -30,10 +30,10 @@ typedef struct __mavlink_estimator_innov_std_t {
     "ESTIMATOR_INNOV_STD", \
     5, \
     {  { "time_usec", NULL, MAVLINK_TYPE_UINT64_T, 0, 0, offsetof(mavlink_estimator_innov_std_t, time_usec) }, \
-         { "std", NULL, MAVLINK_TYPE_FLOAT, 21, 8, offsetof(mavlink_estimator_innov_std_t, std) }, \
-         { "n", NULL, MAVLINK_TYPE_UINT8_T, 0, 92, offsetof(mavlink_estimator_innov_std_t, n) }, \
-         { "id", NULL, MAVLINK_TYPE_UINT8_T, 21, 93, offsetof(mavlink_estimator_innov_std_t, id) }, \
-         { "sensor", NULL, MAVLINK_TYPE_UINT8_T, 21, 114, offsetof(mavlink_estimator_innov_std_t, sensor) }, \
+         { "std", NULL, MAVLINK_TYPE_FLOAT, 40, 8, offsetof(mavlink_estimator_innov_std_t, std) }, \
+         { "n", NULL, MAVLINK_TYPE_UINT8_T, 0, 168, offsetof(mavlink_estimator_innov_std_t, n) }, \
+         { "id", NULL, MAVLINK_TYPE_UINT8_T, 40, 169, offsetof(mavlink_estimator_innov_std_t, id) }, \
+         { "sensor", NULL, MAVLINK_TYPE_UINT8_T, 40, 209, offsetof(mavlink_estimator_innov_std_t, sensor) }, \
          } \
 }
 #else
@@ -41,10 +41,10 @@ typedef struct __mavlink_estimator_innov_std_t {
     "ESTIMATOR_INNOV_STD", \
     5, \
     {  { "time_usec", NULL, MAVLINK_TYPE_UINT64_T, 0, 0, offsetof(mavlink_estimator_innov_std_t, time_usec) }, \
-         { "std", NULL, MAVLINK_TYPE_FLOAT, 21, 8, offsetof(mavlink_estimator_innov_std_t, std) }, \
-         { "n", NULL, MAVLINK_TYPE_UINT8_T, 0, 92, offsetof(mavlink_estimator_innov_std_t, n) }, \
-         { "id", NULL, MAVLINK_TYPE_UINT8_T, 21, 93, offsetof(mavlink_estimator_innov_std_t, id) }, \
-         { "sensor", NULL, MAVLINK_TYPE_UINT8_T, 21, 114, offsetof(mavlink_estimator_innov_std_t, sensor) }, \
+         { "std", NULL, MAVLINK_TYPE_FLOAT, 40, 8, offsetof(mavlink_estimator_innov_std_t, std) }, \
+         { "n", NULL, MAVLINK_TYPE_UINT8_T, 0, 168, offsetof(mavlink_estimator_innov_std_t, n) }, \
+         { "id", NULL, MAVLINK_TYPE_UINT8_T, 40, 169, offsetof(mavlink_estimator_innov_std_t, id) }, \
+         { "sensor", NULL, MAVLINK_TYPE_UINT8_T, 40, 209, offsetof(mavlink_estimator_innov_std_t, sensor) }, \
          } \
 }
 #endif
@@ -68,18 +68,18 @@ static inline uint16_t mavlink_msg_estimator_innov_std_pack(uint8_t system_id, u
 #if MAVLINK_NEED_BYTE_SWAP || !MAVLINK_ALIGNED_FIELDS
     char buf[MAVLINK_MSG_ID_ESTIMATOR_INNOV_STD_LEN];
     _mav_put_uint64_t(buf, 0, time_usec);
-    _mav_put_uint8_t(buf, 92, n);
-    _mav_put_float_array(buf, 8, std, 21);
-    _mav_put_uint8_t_array(buf, 93, id, 21);
-    _mav_put_uint8_t_array(buf, 114, sensor, 21);
+    _mav_put_uint8_t(buf, 168, n);
+    _mav_put_float_array(buf, 8, std, 40);
+    _mav_put_uint8_t_array(buf, 169, id, 40);
+    _mav_put_uint8_t_array(buf, 209, sensor, 40);
         memcpy(_MAV_PAYLOAD_NON_CONST(msg), buf, MAVLINK_MSG_ID_ESTIMATOR_INNOV_STD_LEN);
 #else
     mavlink_estimator_innov_std_t packet;
     packet.time_usec = time_usec;
     packet.n = n;
-    mav_array_memcpy(packet.std, std, sizeof(float)*21);
-    mav_array_memcpy(packet.id, id, sizeof(uint8_t)*21);
-    mav_array_memcpy(packet.sensor, sensor, sizeof(uint8_t)*21);
+    mav_array_memcpy(packet.std, std, sizeof(float)*40);
+    mav_array_memcpy(packet.id, id, sizeof(uint8_t)*40);
+    mav_array_memcpy(packet.sensor, sensor, sizeof(uint8_t)*40);
         memcpy(_MAV_PAYLOAD_NON_CONST(msg), &packet, MAVLINK_MSG_ID_ESTIMATOR_INNOV_STD_LEN);
 #endif
 
@@ -107,18 +107,18 @@ static inline uint16_t mavlink_msg_estimator_innov_std_pack_chan(uint8_t system_
 #if MAVLINK_NEED_BYTE_SWAP || !MAVLINK_ALIGNED_FIELDS
     char buf[MAVLINK_MSG_ID_ESTIMATOR_INNOV_STD_LEN];
     _mav_put_uint64_t(buf, 0, time_usec);
-    _mav_put_uint8_t(buf, 92, n);
-    _mav_put_float_array(buf, 8, std, 21);
-    _mav_put_uint8_t_array(buf, 93, id, 21);
-    _mav_put_uint8_t_array(buf, 114, sensor, 21);
+    _mav_put_uint8_t(buf, 168, n);
+    _mav_put_float_array(buf, 8, std, 40);
+    _mav_put_uint8_t_array(buf, 169, id, 40);
+    _mav_put_uint8_t_array(buf, 209, sensor, 40);
         memcpy(_MAV_PAYLOAD_NON_CONST(msg), buf, MAVLINK_MSG_ID_ESTIMATOR_INNOV_STD_LEN);
 #else
     mavlink_estimator_innov_std_t packet;
     packet.time_usec = time_usec;
     packet.n = n;
-    mav_array_memcpy(packet.std, std, sizeof(float)*21);
-    mav_array_memcpy(packet.id, id, sizeof(uint8_t)*21);
-    mav_array_memcpy(packet.sensor, sensor, sizeof(uint8_t)*21);
+    mav_array_memcpy(packet.std, std, sizeof(float)*40);
+    mav_array_memcpy(packet.id, id, sizeof(uint8_t)*40);
+    mav_array_memcpy(packet.sensor, sensor, sizeof(uint8_t)*40);
         memcpy(_MAV_PAYLOAD_NON_CONST(msg), &packet, MAVLINK_MSG_ID_ESTIMATOR_INNOV_STD_LEN);
 #endif
 
@@ -170,18 +170,18 @@ static inline void mavlink_msg_estimator_innov_std_send(mavlink_channel_t chan, 
 #if MAVLINK_NEED_BYTE_SWAP || !MAVLINK_ALIGNED_FIELDS
     char buf[MAVLINK_MSG_ID_ESTIMATOR_INNOV_STD_LEN];
     _mav_put_uint64_t(buf, 0, time_usec);
-    _mav_put_uint8_t(buf, 92, n);
-    _mav_put_float_array(buf, 8, std, 21);
-    _mav_put_uint8_t_array(buf, 93, id, 21);
-    _mav_put_uint8_t_array(buf, 114, sensor, 21);
+    _mav_put_uint8_t(buf, 168, n);
+    _mav_put_float_array(buf, 8, std, 40);
+    _mav_put_uint8_t_array(buf, 169, id, 40);
+    _mav_put_uint8_t_array(buf, 209, sensor, 40);
     _mav_finalize_message_chan_send(chan, MAVLINK_MSG_ID_ESTIMATOR_INNOV_STD, buf, MAVLINK_MSG_ID_ESTIMATOR_INNOV_STD_MIN_LEN, MAVLINK_MSG_ID_ESTIMATOR_INNOV_STD_LEN, MAVLINK_MSG_ID_ESTIMATOR_INNOV_STD_CRC);
 #else
     mavlink_estimator_innov_std_t packet;
     packet.time_usec = time_usec;
     packet.n = n;
-    mav_array_memcpy(packet.std, std, sizeof(float)*21);
-    mav_array_memcpy(packet.id, id, sizeof(uint8_t)*21);
-    mav_array_memcpy(packet.sensor, sensor, sizeof(uint8_t)*21);
+    mav_array_memcpy(packet.std, std, sizeof(float)*40);
+    mav_array_memcpy(packet.id, id, sizeof(uint8_t)*40);
+    mav_array_memcpy(packet.sensor, sensor, sizeof(uint8_t)*40);
     _mav_finalize_message_chan_send(chan, MAVLINK_MSG_ID_ESTIMATOR_INNOV_STD, (const char *)&packet, MAVLINK_MSG_ID_ESTIMATOR_INNOV_STD_MIN_LEN, MAVLINK_MSG_ID_ESTIMATOR_INNOV_STD_LEN, MAVLINK_MSG_ID_ESTIMATOR_INNOV_STD_CRC);
 #endif
 }
@@ -213,18 +213,18 @@ static inline void mavlink_msg_estimator_innov_std_send_buf(mavlink_message_t *m
 #if MAVLINK_NEED_BYTE_SWAP || !MAVLINK_ALIGNED_FIELDS
     char *buf = (char *)msgbuf;
     _mav_put_uint64_t(buf, 0, time_usec);
-    _mav_put_uint8_t(buf, 92, n);
-    _mav_put_float_array(buf, 8, std, 21);
-    _mav_put_uint8_t_array(buf, 93, id, 21);
-    _mav_put_uint8_t_array(buf, 114, sensor, 21);
+    _mav_put_uint8_t(buf, 168, n);
+    _mav_put_float_array(buf, 8, std, 40);
+    _mav_put_uint8_t_array(buf, 169, id, 40);
+    _mav_put_uint8_t_array(buf, 209, sensor, 40);
     _mav_finalize_message_chan_send(chan, MAVLINK_MSG_ID_ESTIMATOR_INNOV_STD, buf, MAVLINK_MSG_ID_ESTIMATOR_INNOV_STD_MIN_LEN, MAVLINK_MSG_ID_ESTIMATOR_INNOV_STD_LEN, MAVLINK_MSG_ID_ESTIMATOR_INNOV_STD_CRC);
 #else
     mavlink_estimator_innov_std_t *packet = (mavlink_estimator_innov_std_t *)msgbuf;
     packet->time_usec = time_usec;
     packet->n = n;
-    mav_array_memcpy(packet->std, std, sizeof(float)*21);
-    mav_array_memcpy(packet->id, id, sizeof(uint8_t)*21);
-    mav_array_memcpy(packet->sensor, sensor, sizeof(uint8_t)*21);
+    mav_array_memcpy(packet->std, std, sizeof(float)*40);
+    mav_array_memcpy(packet->id, id, sizeof(uint8_t)*40);
+    mav_array_memcpy(packet->sensor, sensor, sizeof(uint8_t)*40);
     _mav_finalize_message_chan_send(chan, MAVLINK_MSG_ID_ESTIMATOR_INNOV_STD, (const char *)packet, MAVLINK_MSG_ID_ESTIMATOR_INNOV_STD_MIN_LEN, MAVLINK_MSG_ID_ESTIMATOR_INNOV_STD_LEN, MAVLINK_MSG_ID_ESTIMATOR_INNOV_STD_CRC);
 #endif
 }
@@ -252,7 +252,7 @@ static inline uint64_t mavlink_msg_estimator_innov_std_get_time_usec(const mavli
  */
 static inline uint8_t mavlink_msg_estimator_innov_std_get_n(const mavlink_message_t* msg)
 {
-    return _MAV_RETURN_uint8_t(msg,  92);
+    return _MAV_RETURN_uint8_t(msg,  168);
 }
 
 /**
@@ -262,7 +262,7 @@ static inline uint8_t mavlink_msg_estimator_innov_std_get_n(const mavlink_messag
  */
 static inline uint16_t mavlink_msg_estimator_innov_std_get_id(const mavlink_message_t* msg, uint8_t *id)
 {
-    return _MAV_RETURN_uint8_t_array(msg, id, 21,  93);
+    return _MAV_RETURN_uint8_t_array(msg, id, 40,  169);
 }
 
 /**
@@ -272,7 +272,7 @@ static inline uint16_t mavlink_msg_estimator_innov_std_get_id(const mavlink_mess
  */
 static inline uint16_t mavlink_msg_estimator_innov_std_get_sensor(const mavlink_message_t* msg, uint8_t *sensor)
 {
-    return _MAV_RETURN_uint8_t_array(msg, sensor, 21,  114);
+    return _MAV_RETURN_uint8_t_array(msg, sensor, 40,  209);
 }
 
 /**
@@ -282,7 +282,7 @@ static inline uint16_t mavlink_msg_estimator_innov_std_get_sensor(const mavlink_
  */
 static inline uint16_t mavlink_msg_estimator_innov_std_get_std(const mavlink_message_t* msg, float *std)
 {
-    return _MAV_RETURN_float_array(msg, std, 21,  8);
+    return _MAV_RETURN_float_array(msg, std, 40,  8);
 }
 
 /**
