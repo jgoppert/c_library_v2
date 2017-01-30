@@ -2556,6 +2556,9 @@
       <entry value="11" name="MAV_SENSOR_TYPE_VISION">
         <description>Vision</description>
       </entry>
+      <entry value="12" name="MAV_SENSOR_TYPE_LAND">
+        <description>Fake landing sensor to fuse landed state info</description>
+      </entry>
     </enum>
   </enums>
   <messages>

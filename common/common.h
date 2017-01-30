@@ -1043,7 +1043,8 @@ typedef enum MAV_SENSOR_TYPE
    MAV_SENSOR_TYPE_MOCAP=9, /* Motion capture | */
    MAV_SENSOR_TYPE_FLOW=10, /* Optical flow | */
    MAV_SENSOR_TYPE_VISION=11, /* Vision | */
-   MAV_SENSOR_TYPE_ENUM_END=12, /*  | */
+   MAV_SENSOR_TYPE_LAND=12, /* Fake landing sensor to fuse landed state info | */
+   MAV_SENSOR_TYPE_ENUM_END=13, /*  | */
 } MAV_SENSOR_TYPE;
 #endif
 
