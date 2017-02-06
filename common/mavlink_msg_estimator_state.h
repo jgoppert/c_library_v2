@@ -7,7 +7,7 @@ MAVPACKED(
 typedef struct __mavlink_estimator_state_t {
  uint64_t time_usec; /*< Timestamp (microseconds since system boot or since UNIX epoch)*/
  float state[30]; /*< The estimator state*/
- uint8_t n; /*< Number of states, max 21*/
+ uint8_t n; /*< Number of states, max 30*/
  uint8_t id[30]; /*< An array describing field type (see MAV_FIELD)*/
  uint8_t sensor[30]; /*< An array describing the sensor associated with the field (see MAV_SENSOR_TYPE)*/
 }) mavlink_estimator_state_t;
@@ -56,7 +56,7 @@ typedef struct __mavlink_estimator_state_t {
  * @param msg The MAVLink message to compress the data into
  *
  * @param time_usec Timestamp (microseconds since system boot or since UNIX epoch)
- * @param n Number of states, max 21
+ * @param n Number of states, max 30
  * @param id An array describing field type (see MAV_FIELD)
  * @param sensor An array describing the sensor associated with the field (see MAV_SENSOR_TYPE)
  * @param state The estimator state
@@ -94,7 +94,7 @@ static inline uint16_t mavlink_msg_estimator_state_pack(uint8_t system_id, uint8
  * @param chan The MAVLink channel this message will be sent over
  * @param msg The MAVLink message to compress the data into
  * @param time_usec Timestamp (microseconds since system boot or since UNIX epoch)
- * @param n Number of states, max 21
+ * @param n Number of states, max 30
  * @param id An array describing field type (see MAV_FIELD)
  * @param sensor An array describing the sensor associated with the field (see MAV_SENSOR_TYPE)
  * @param state The estimator state
@@ -158,7 +158,7 @@ static inline uint16_t mavlink_msg_estimator_state_encode_chan(uint8_t system_id
  * @param chan MAVLink channel to send the message
  *
  * @param time_usec Timestamp (microseconds since system boot or since UNIX epoch)
- * @param n Number of states, max 21
+ * @param n Number of states, max 30
  * @param id An array describing field type (see MAV_FIELD)
  * @param sensor An array describing the sensor associated with the field (see MAV_SENSOR_TYPE)
  * @param state The estimator state
@@ -248,7 +248,7 @@ static inline uint64_t mavlink_msg_estimator_state_get_time_usec(const mavlink_m
 /**
  * @brief Get field n from estimator_state message
  *
- * @return Number of states, max 21
+ * @return Number of states, max 30
  */
 static inline uint8_t mavlink_msg_estimator_state_get_n(const mavlink_message_t* msg)
 {
